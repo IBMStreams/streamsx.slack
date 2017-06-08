@@ -66,7 +66,7 @@ public class SendSlackMessage extends TupleConsumer {
 	
 	@Parameter(
 			optional=false,
-			description="Slack incoming webhook URL to send alert to."
+			description="Specifies the Slack incoming WebHook URL to send alert to."
 			)
 	public void setSlackUrl(String slackUrl) throws IOException {
 		this.slackUrl = slackUrl;
@@ -74,7 +74,7 @@ public class SendSlackMessage extends TupleConsumer {
 	
 	@Parameter(
 			optional=true,
-			description="Username to display for alert."
+			description="Specified the username to display for the alert. The default is 'SendSlackMessage'."
 			)
 	public void setUsername(String username) throws IOException {
 		this.username = username;
@@ -82,7 +82,8 @@ public class SendSlackMessage extends TupleConsumer {
 	
 	@Parameter(
 			optional=true,
-			description="Icon to display for alert."
+			description="Specifies the URL of the icon to display for the alert. The default icon URL is:\\n"
+						+ "https://www-01.ibm.com/software/data/infosphere/images/InfoSphere-Streams-logo_140x140.png"
 			)
 	public void setIconUrl(String iconUrl) throws IOException {
 		this.iconUrl = iconUrl;
@@ -91,7 +92,7 @@ public class SendSlackMessage extends TupleConsumer {
 	@DefaultAttribute("message")
 	@Parameter(
 			optional=true,
-			description="Incoming tuple attribute to use as content for message."
+			description="Incoming tuple attribute to use as content for message. The default attribute to use is 'message'."
 			)
 	public void setMessageAttribute(TupleAttribute<Tuple, String> messageAttribute) throws IOException {
 		this.messageAttribute = messageAttribute;
@@ -104,10 +105,10 @@ public class SendSlackMessage extends TupleConsumer {
 	/**
 	 * Logger for tracing.
 	 */
-	private static Logger _trace = Logger.getLogger(SendSlackMessage.class.getName());
+//	private static Logger _trace = Logger.getLogger(SendSlackMessage.class.getName());
 	
 	/**
-	 * Slack webhook URL.
+	 * Slack WebHook URL.
 	 */
 	private String slackUrl;
 	
