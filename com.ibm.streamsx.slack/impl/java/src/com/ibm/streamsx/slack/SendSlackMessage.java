@@ -78,7 +78,7 @@ public class SendSlackMessage extends TupleConsumer {
 			description="Incoming tuple attribute that specifies the username for the slack message. "
 					  + "The default username is specified in the incoming WebHook's configuration."
 			)
-	public void setUsername(TupleAttribute<Tuple, String> usernameAttr) throws IOException {
+	public void setUsernameAttr(TupleAttribute<Tuple, String> usernameAttr) throws IOException {
 		this.usernameAttr = usernameAttr;
 	}
 	
@@ -87,7 +87,7 @@ public class SendSlackMessage extends TupleConsumer {
 			description="Incoming tuple attribute that specifies the icon URL for the slack message. "
 					  + "The default icon is specified in the incoming WebHook's configuration."
 			)
-	public void setIconUrl(TupleAttribute<Tuple, String> iconUrlAttr) throws IOException {
+	public void setIconUrlAttr(TupleAttribute<Tuple, String> iconUrlAttr) throws IOException {
 		this.iconUrlAttr = iconUrlAttr;
 	}
 	
