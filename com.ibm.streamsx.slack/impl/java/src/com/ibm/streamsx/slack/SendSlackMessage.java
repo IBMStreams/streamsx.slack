@@ -58,15 +58,16 @@ public class SendSlackMessage extends TupleConsumer {
 	// ------------------------------------------------------------------------
 
 	static final String DESC_OPERATOR = 
-			"The SendSlackMessage operator extracts the 'message' attribute from "
-			+ "incoming tuples and outputs it to the a Slack webhook URL "
-			+ "specified in the parameters."
-			+ "\\n"
-			;
+			"The SendSlackMessage operator outputs the contents of the messageAttr attribute from "
+		  + "incoming tuples to the Slack WebHook URL specified in the parameters."
+		  + "\\n"
+		  + "Custom usernames and icons can be used, instead of the default ones, through the "
+		  + "usernameAttr and iconUrlAttr attributes."
+		  + "\\n";
 	
 	@Parameter(
 			optional=false,
-			description="Specifies the Slack incoming WebHook URL to send message to."
+			description="Specifies the Slack incoming WebHook URL to send messages to."
 			)
 	public void setSlackUrl(String slackUrl) throws IOException {
 		this.slackUrl = slackUrl;
@@ -74,29 +75,30 @@ public class SendSlackMessage extends TupleConsumer {
 	
 	@Parameter(
 			optional=true,
-			description="Specified the username to display for the message. The default username is specified in "
-					  + "the incoming WebHook's configuration."
+			description="Incoming tuple attribute that specifies the username for the slack message. "
+					  + "The default username is specified in the incoming WebHook's configuration."
 			)
-	public void setUsername(String username) throws IOException {
-		this.username = username;
+	public void setUsername(TupleAttribute<Tuple, String> usernameAttr) throws IOException {
+		this.usernameAttr = usernameAttr;
 	}
 	
 	@Parameter(
 			optional=true,
-			description="Specifies the URL of the icon to display for the message. The default icon is specified in "
-					  + "the incoming WebHook's configuration."
+			description="Incoming tuple attribute that specifies the icon URL for the slack message. "
+					  + "The default icon is specified in the incoming WebHook's configuration."
 			)
-	public void setIconUrl(String iconUrl) throws IOException {
-		this.iconUrl = iconUrl;
+	public void setIconUrl(TupleAttribute<Tuple, String> iconUrlAttr) throws IOException {
+		this.iconUrlAttr = iconUrlAttr;
 	}
 	
 	@DefaultAttribute("message")
 	@Parameter(
 			optional=true,
-			description="Incoming tuple attribute to use as content for message. The default attribute to use is 'message'."
+			description="Incoming tuple attribute to use as content for the slack message. "
+					  + "The default attribute to use is 'message'."
 			)
-	public void setMessageAttribute(TupleAttribute<Tuple, String> messageAttribute) throws IOException {
-		this.messageAttribute = messageAttribute;
+	public void setMessageAttribute(TupleAttribute<Tuple, String> messageAttr) throws IOException {
+		this.messageAttr = messageAttr;
 	}
 	
 	// ------------------------------------------------------------------------
@@ -116,17 +118,17 @@ public class SendSlackMessage extends TupleConsumer {
 	/**
 	 * Username to display.
 	 */
-	private String username;
+	private TupleAttribute<Tuple, String> usernameAttr;
 	
 	/**
 	 * Icon URL.
 	 */
-	private String iconUrl;
+	private TupleAttribute<Tuple, String> iconUrlAttr;
 	
 	/**
 	 * Attribute name of tuple to use as message content.
 	 */
-	private TupleAttribute<Tuple, String> messageAttribute;
+	private TupleAttribute<Tuple, String> messageAttr;
 	
 	/**
 	 * HTTP client and post.
@@ -164,20 +166,21 @@ public class SendSlackMessage extends TupleConsumer {
     		return true;
     	}
     	
-    	// Message to post on slack channel.
-    	String message = messageAttribute.getValue(tuple);
-    	
     	// Send Slack message if slack webhook URL is specified.
 		if (slackUrl != null) {
+			
+			// Message to post on slack channel.
+	    	String message = messageAttr.getValue(tuple);
+	    	
 			JSONObject json = new JSONObject();
 			json.put("text", message);
 			
 			// Override WebHook username and icon, if params defined.
-			if (username != null) {
-				json.put("username", username);
+			if (usernameAttr != null) {
+				json.put("username", usernameAttr.getValue(tuple));
 			}
-			if (iconUrl != null) {
-				json.put("icon_url", iconUrl);
+			if (iconUrlAttr != null) {
+				json.put("icon_url", iconUrlAttr.getValue(tuple));
 			}
 			
 			StringEntity params = new StringEntity(json.toString(), "UTF-8");
