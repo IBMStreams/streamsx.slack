@@ -97,7 +97,7 @@ public class SendSlackMessage extends TupleConsumer {
 			description="Incoming tuple attribute to use as content for the slack message. "
 					  + "The default attribute to use is 'message'."
 			)
-	public void setMessageAttribute(TupleAttribute<Tuple, String> messageAttr) throws IOException {
+	public void setMessageAttr(TupleAttribute<Tuple, String> messageAttr) throws IOException {
 		this.messageAttr = messageAttr;
 	}
 	
@@ -111,22 +111,22 @@ public class SendSlackMessage extends TupleConsumer {
 	private static Logger _trace = Logger.getLogger(SendSlackMessage.class.getName());
 	
 	/**
-	 * Slack WebHook URL.
+	 * Slack incoming WebHook URL.
 	 */
 	private String slackUrl;
 	
 	/**
-	 * Username to display.
+	 * Attribute containing username to use for message.
 	 */
 	private TupleAttribute<Tuple, String> usernameAttr;
 	
 	/**
-	 * Icon URL.
+	 * Attribute containing icon URL to use for message.
 	 */
 	private TupleAttribute<Tuple, String> iconUrlAttr;
 	
 	/**
-	 * Attribute name of tuple to use as message content.
+	 * Attribute containing message to send.
 	 */
 	private TupleAttribute<Tuple, String> messageAttr;
 	
