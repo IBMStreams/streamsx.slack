@@ -13,10 +13,12 @@
  */
 namespace com.ibm.streamsx.slack.sample.CustomIconEmoji ;
 
-use com.ibm.streamsx.slack::EmojiMessage ;
+use com.ibm.streamsx.json::Json;
+use com.ibm.streamsx.json::TupleToJSON;
+use com.ibm.streamsx.slack::Message ;
 use com.ibm.streamsx.slack::SendSlackMessage ;
 
-composite Main
+public composite Main
 {
 	graph
 		/**
@@ -35,7 +37,7 @@ composite Main
 		 * GenerateMessage generates a message using the current iteration count. The iteration count 
 		 * also determines which variation of 3 icon emojis to use for the message.
 		 */
-		stream<EmojiMessage> GenerateMessage = Custom(GenerateIteration)
+		stream<Message, tuple<rstring icon_emoji>> GenerateMessage = Custom(GenerateIteration)
 		{
 			logic
 				onTuple GenerateIteration :
@@ -52,11 +54,14 @@ composite Main
 					}
 				}
 		}
+
+                // Convert to JSON.
+                stream<Json> JSONMessage = TupleToJSON(GenerateMessage) { }
 		
 		/**
 		 * SendMessage sends the generated message to the given slack URL.
 		 */
-		() as SendMessage = SendSlackMessage(GenerateMessage)
+		() as SendMessage = SendSlackMessage(JSONMessage)
 		{
 			param
 				slackUrl : getSubmissionTimeValue("slackUrl") ;
