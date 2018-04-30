@@ -22,17 +22,23 @@
 <div class="body refbody">
 <div class="section">
 <p class="p">
-<a class="xref" href="../toolkits/toolkits.html">Toolkits</a> &gt; <a class="xref" href="tk$com.ibm.streamsx.slack.html">com.ibm.streamsx.slack 0.1.0</a> &gt; <a class="xref" href="ns$com.ibm.streamsx.slack.html">com.ibm.streamsx.slack</a> &gt; SendSlackMessage</p>
+<a class="xref" href="../toolkits/toolkits.html">Toolkits</a> &gt; <a class="xref" href="tk$com.ibm.streamsx.slack.html">com.ibm.streamsx.slack 0.3.0</a> &gt; <a class="xref" href="ns$com.ibm.streamsx.slack.html">com.ibm.streamsx.slack</a> &gt; SendSlackMessage</p>
 
 </div>
 
 <div class="section splprimop">
-  <embed class="image" src="../../image/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.svg" width="672" height="112"/>
+  <embed class="image" src="../../image/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.svg" width="872" height="112"/>
 </div>
 
 <div class="section">
 
-<p class="p">The SendSlackMessage operator outputs the contents of the messageAttribute from incoming tuples to the Slack WebHook URL specified in the parameters. The default messageAttribute is: message. This can be changed through the messageAttribute parameter. Custom usernames and icons can be used, instead of the default ones, through the usernameAttribute and iconUrlAttribute parameters. 
+<p class="p">Sends messages to a Slack incoming web hook. Each incoming tuple results in a message sent to the incoming web hook.The tuple is converted to JSON and sent to the incoming web hook.
+</p>
+
+<p class="p">This operator forms the basis for the <a class="xref" href="spl$com.ibm.streamsx.slack.services$message.html#spldoc_compilationunit__composite_operator__SlackMessageService">SlackMessageService</a> microservice.
+</p>
+
+<p class="p">Guide on Slack incoming web hooks: <a class="xref" href="https://api.slack.com/incoming-webhooks">https://api.slack.com/incoming-webhooks</a> 
 </p>
 
 </div>
@@ -43,7 +49,7 @@
  
   <dt class="dt dlterm">Ports</dt>
 
-  <dd class="dd">This operator has 1 input port and 0 output port.</dd>
+  <dd class="dd">This operator has 1 input port and 0 output ports.</dd>
 
  
  
@@ -55,9 +61,9 @@
  
   <dt class="dt dlterm">Parameters</dt>
 
-  <dd class="dd">This operator supports 6 parameters.
+  <dd class="dd">This operator supports 2 parameters.
 <p class="p"> Optional: 
-<a class="xref" href="#spldoc_operator__parameter__applicationConfigurationName">applicationConfigurationName</a>, <a class="xref" href="#spldoc_operator__parameter__iconEmojiAttribute">iconEmojiAttribute</a>, <a class="xref" href="#spldoc_operator__parameter__iconUrlAttribute">iconUrlAttribute</a>, <a class="xref" href="#spldoc_operator__parameter__messageAttribute">messageAttribute</a>, <a class="xref" href="#spldoc_operator__parameter__slackUrl">slackUrl</a>, <a class="xref" href="#spldoc_operator__parameter__usernameAttribute">usernameAttribute</a>
+<a class="xref" href="#spldoc_operator__parameter__slackConfiguration">slackConfiguration</a>, <a class="xref" href="#spldoc_operator__parameter__slackUrl">slackUrl</a>
 
 </p>
 </dd>
@@ -93,8 +99,20 @@
 
    <dd class="dd">
 
-<p class="p">Port that ingests tuples
+<p class="p">Each tuple is converted to JSON and sent as a message to the Slack incoming web hook.
 </p>
+
+<div class="p">The port's schema must be one of:
+<ul class="ul">
+<li class="li"> <a class="xref" href="spl$com.ibm.streamsx.slack$types.html#spldoc_compilationunit__type__Json">Json</a> - Streams standard JSON schema. Each tuple represents a JSON object and is used as the message contents. This allows the application to use any field supported by the Slack web hook.</li>
+
+<li class="li"> A single <tt class="ph tt">rstring</tt> or <tt class="ph tt">ustring</tt> attribute (which includes the default string exchange schema <a class="xref" href="spl$com.ibm.streamsx.slack$types.html#spldoc_compilationunit__type__String">String</a>). The value of the string is used as the <tt class="ph tt">text</tt> property in the JSON message object.</li>
+
+<li class="li"> A schema containing an attribute named <tt class="ph tt">text</tt> with type <tt class="ph tt">rstring</tt> or <tt class="ph tt">ustring</tt>. The value of the <tt class="ph tt">text</tt> attributed is used as the <tt class="ph tt">text</tt> property in the JSON message object. <a class="xref" href="spl$com.ibm.streamsx.slack$types.html#spldoc_compilationunit__type__Message">Message</a> type may be used to augment other schemas. </li>
+
+</ul>
+
+</div>
    </dd>
 
   
@@ -129,17 +147,17 @@
 
 <div class="section">
 <p class="p splhead-1"><strong class="ph b"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters">Parameters</a></strong></p>
-This operator supports 6 parameters.
+This operator supports 2 parameters.
 <p class="p"> Optional: 
-<a class="xref" href="#spldoc_operator__parameter__applicationConfigurationName">applicationConfigurationName</a>, <a class="xref" href="#spldoc_operator__parameter__iconEmojiAttribute">iconEmojiAttribute</a>, <a class="xref" href="#spldoc_operator__parameter__iconUrlAttribute">iconUrlAttribute</a>, <a class="xref" href="#spldoc_operator__parameter__messageAttribute">messageAttribute</a>, <a class="xref" href="#spldoc_operator__parameter__slackUrl">slackUrl</a>, <a class="xref" href="#spldoc_operator__parameter__usernameAttribute">usernameAttribute</a>
+<a class="xref" href="#spldoc_operator__parameter__slackConfiguration">slackConfiguration</a>, <a class="xref" href="#spldoc_operator__parameter__slackUrl">slackUrl</a>
 
 </p>
 <dl class="dl">
 
-<dt class="dt dlterm"><a name="spldoc_operator__parameter__applicationConfigurationName"><!-- --></a><tt class="ph tt">applicationConfigurationName</tt></dt>
+<dt class="dt dlterm"><a name="spldoc_operator__parameter__slackConfiguration"><!-- --></a><tt class="ph tt">slackConfiguration</tt></dt>
 
 <dd class="dd">
-<p class="p">Name of application configuration containing operator parameters. Parameters of type Attribute should be specified in the form of a String.
+<p class="p">Name of application configuration containing operator parameters. The incoming web hook URL can be set in the application configuration by setting the <tt class="ph tt">slackUrl</tt> property. This is more flexible than the operator parameter as the incoming web hook URL can be changed while the application is running.
 </p>
 <dl class="dl">
 
@@ -154,108 +172,6 @@ This operator supports 6 parameters.
      </li>
 
      <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__optional">Optional</a>: true
-     </li>
-
-  </ul>
-
- </dd>
-
-
-</dl>
-
-</dd>
-
-
-
-<dt class="dt dlterm"><a name="spldoc_operator__parameter__iconEmojiAttribute"><!-- --></a><tt class="ph tt">iconEmojiAttribute</tt></dt>
-
-<dd class="dd">
-<p class="p">Incoming tuple attribute that specifies the icon emoji for the slack message. This will be used in-place of the icon URL, if specified. The incoming WebHook's configuration allows users to choose between an icon or an emoji. If no icon URL or emoji attributes are found, the default icon in the WebHook's configuration will be used.
-</p>
-<dl class="dl">
-
- <dt class="dt dlterm">Properties </dt>
-
- <dd class="dd">
-  <ul class="sl simple">
-  <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__type">Type</a>: rstring
-  </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__cardinality">Cardinality</a>: 1
-     </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__optional">Optional</a>: true
-     </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__expressionmode">ExpressionMode</a>: Attribute
-     </li>
-
-  </ul>
-
- </dd>
-
-
-</dl>
-
-</dd>
-
-
-
-<dt class="dt dlterm"><a name="spldoc_operator__parameter__iconUrlAttribute"><!-- --></a><tt class="ph tt">iconUrlAttribute</tt></dt>
-
-<dd class="dd">
-<p class="p">Incoming tuple attribute that specifies the icon URL for the slack message. The default icon is specified in the incoming WebHook's configuration.
-</p>
-<dl class="dl">
-
- <dt class="dt dlterm">Properties </dt>
-
- <dd class="dd">
-  <ul class="sl simple">
-  <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__type">Type</a>: rstring
-  </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__cardinality">Cardinality</a>: 1
-     </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__optional">Optional</a>: true
-     </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__expressionmode">ExpressionMode</a>: Attribute
-     </li>
-
-  </ul>
-
- </dd>
-
-
-</dl>
-
-</dd>
-
-
-
-<dt class="dt dlterm"><a name="spldoc_operator__parameter__messageAttribute"><!-- --></a><tt class="ph tt">messageAttribute</tt></dt>
-
-<dd class="dd">
-<p class="p">Incoming tuple attribute to use as content for the slack message. The default attribute to use is 'message'.
-</p>
-<dl class="dl">
-
- <dt class="dt dlterm">Properties </dt>
-
- <dd class="dd">
-  <ul class="sl simple">
-  <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__type">Type</a>: rstring
-  </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__cardinality">Cardinality</a>: 1
-     </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__optional">Optional</a>: true
-     </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__expressionmode">ExpressionMode</a>: Attribute
      </li>
 
   </ul>
@@ -272,7 +188,7 @@ This operator supports 6 parameters.
 <dt class="dt dlterm"><a name="spldoc_operator__parameter__slackUrl"><!-- --></a><tt class="ph tt">slackUrl</tt></dt>
 
 <dd class="dd">
-<p class="p">Specifies the Slack incoming WebHook URL to send messages to.
+<p class="p">Specifies the Slack incoming web hook URL to send messages to.
 </p>
 <dl class="dl">
 
@@ -287,40 +203,6 @@ This operator supports 6 parameters.
      </li>
 
      <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__optional">Optional</a>: true
-     </li>
-
-  </ul>
-
- </dd>
-
-
-</dl>
-
-</dd>
-
-
-
-<dt class="dt dlterm"><a name="spldoc_operator__parameter__usernameAttribute"><!-- --></a><tt class="ph tt">usernameAttribute</tt></dt>
-
-<dd class="dd">
-<p class="p">Incoming tuple attribute that specifies the username for the slack message. The default username is specified in the incoming WebHook's configuration.
-</p>
-<dl class="dl">
-
- <dt class="dt dlterm">Properties </dt>
-
- <dd class="dd">
-  <ul class="sl simple">
-  <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__type">Type</a>: rstring
-  </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__cardinality">Cardinality</a>: 1
-     </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__optional">Optional</a>: true
-     </li>
-
-     <li class="sli"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__parameters__parameter__expressionmode">ExpressionMode</a>: Attribute
      </li>
 
   </ul>

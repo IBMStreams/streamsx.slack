@@ -1,12 +1,12 @@
-#Mon Jul 24 20:14:59 EDT 2017
+#Mon Apr 30 11:00:57 PDT 2018
 copytosourcelist=
-hreftargetslist=dita/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.xml,dita/toolkits/ix$Namespace.xml,dita/toolkits/ix$Operator.xml,dita/toolkits/toolkits.xml,dita/tk$com.ibm.streamsx.slack/tk$com.ibm.streamsx.slack.xml,dita/tk$com.ibm.streamsx.slack/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Namespace.xml,dita/references/OperatorModel.xml
+hreftargetslist=dita/tk$com.ibm.streamsx.slack/spl$com.ibm.streamsx.slack$types.xml,dita/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.services.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.xml,dita/toolkits/ix$Namespace.xml,dita/toolkits/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Type.xml,dita/toolkits/ix$Type.xml,dita/toolkits/toolkits.xml,dita/tk$com.ibm.streamsx.slack/spl$com.ibm.streamsx.slack.services$message.xml,dita/tk$com.ibm.streamsx.slack/tk$com.ibm.streamsx.slack.xml,dita/tk$com.ibm.streamsx.slack/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Namespace.xml,dita/references/OperatorModel.xml
 fullditatopicfile=fullditatopic.list
 fullditamapandtopicfile=fullditamapandtopic.list
-fullditatopiclist=dita/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.xml,dita/toolkits/ix$Namespace.xml,dita/toolkits/ix$Operator.xml,dita/toolkits/toolkits.xml,dita/tk$com.ibm.streamsx.slack/tk$com.ibm.streamsx.slack.xml,dita/tk$com.ibm.streamsx.slack/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Namespace.xml,dita/references/OperatorModel.xml
-fullditamapandtopiclist=dita/toolkits.ditamap,dita/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.xml,dita/toolkits/ix$Namespace.xml,dita/toolkits/ix$Operator.xml,dita/toolkits/toolkits.xml,dita/tk$com.ibm.streamsx.slack/tk$com.ibm.streamsx.slack.xml,dita/tk$com.ibm.streamsx.slack/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Namespace.xml,dita/references/OperatorModel.xml
+fullditatopiclist=dita/tk$com.ibm.streamsx.slack/spl$com.ibm.streamsx.slack$types.xml,dita/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.services.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.xml,dita/toolkits/ix$Namespace.xml,dita/toolkits/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Type.xml,dita/toolkits/ix$Type.xml,dita/toolkits/toolkits.xml,dita/tk$com.ibm.streamsx.slack/spl$com.ibm.streamsx.slack.services$message.xml,dita/tk$com.ibm.streamsx.slack/tk$com.ibm.streamsx.slack.xml,dita/tk$com.ibm.streamsx.slack/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Namespace.xml,dita/references/OperatorModel.xml
+fullditamapandtopiclist=dita/tk$com.ibm.streamsx.slack/spl$com.ibm.streamsx.slack$types.xml,dita/toolkits.ditamap,dita/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.services.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.xml,dita/toolkits/ix$Namespace.xml,dita/toolkits/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Type.xml,dita/toolkits/ix$Type.xml,dita/toolkits/toolkits.xml,dita/tk$com.ibm.streamsx.slack/spl$com.ibm.streamsx.slack.services$message.xml,dita/tk$com.ibm.streamsx.slack/tk$com.ibm.streamsx.slack.xml,dita/tk$com.ibm.streamsx.slack/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Namespace.xml,dita/references/OperatorModel.xml
 hrefditatopicfile=hrefditatopic.list
-hrefditatopiclist=dita/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.xml,dita/toolkits/ix$Namespace.xml,dita/toolkits/ix$Operator.xml,dita/toolkits/toolkits.xml,dita/tk$com.ibm.streamsx.slack/tk$com.ibm.streamsx.slack.xml,dita/tk$com.ibm.streamsx.slack/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Namespace.xml
+hrefditatopiclist=dita/tk$com.ibm.streamsx.slack/spl$com.ibm.streamsx.slack$types.xml,dita/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.services.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.xml,dita/toolkits/ix$Namespace.xml,dita/toolkits/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Type.xml,dita/toolkits/ix$Type.xml,dita/toolkits/toolkits.xml,dita/tk$com.ibm.streamsx.slack/spl$com.ibm.streamsx.slack.services$message.xml,dita/tk$com.ibm.streamsx.slack/tk$com.ibm.streamsx.slack.xml,dita/tk$com.ibm.streamsx.slack/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Namespace.xml
 user.input.file=dita/toolkits.ditamap
 subtargetsfile=subtargets.list
 fullditamapfile=fullditamap.list
@@ -27,7 +27,7 @@ imagelist=image/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMes
 htmlfile=html.list
 htmllist=
 canditopicsfile=canditopics.list
-canditopicslist=dita/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.xml,dita/toolkits/ix$Namespace.xml,dita/toolkits/ix$Operator.xml,dita/toolkits/toolkits.xml,dita/tk$com.ibm.streamsx.slack/tk$com.ibm.streamsx.slack.xml,dita/tk$com.ibm.streamsx.slack/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Namespace.xml,dita/references/OperatorModel.xml
+canditopicslist=dita/tk$com.ibm.streamsx.slack/spl$com.ibm.streamsx.slack$types.xml,dita/tk$com.ibm.streamsx.slack/op$com.ibm.streamsx.slack$SendSlackMessage.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.services.xml,dita/tk$com.ibm.streamsx.slack/ns$com.ibm.streamsx.slack.xml,dita/toolkits/ix$Namespace.xml,dita/toolkits/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Type.xml,dita/toolkits/ix$Type.xml,dita/toolkits/toolkits.xml,dita/tk$com.ibm.streamsx.slack/spl$com.ibm.streamsx.slack.services$message.xml,dita/tk$com.ibm.streamsx.slack/tk$com.ibm.streamsx.slack.xml,dita/tk$com.ibm.streamsx.slack/ix$Operator.xml,dita/tk$com.ibm.streamsx.slack/ix$Namespace.xml,dita/references/OperatorModel.xml
 keyreffile=keyref.list
 subjectschemefile=subjectscheme.list
 keyreflist=
@@ -37,7 +37,7 @@ codereffile=coderef.list
 keylist=
 codereflist=
 user.input.file.listfile=usr.input.file.list
-user.input.dir=/home/streamsadmin/test/streamsx.slack/com.ibm.streamsx.slack/doc/spldoc
+user.input.dir=/home/streamsadmin/slack/streamsx.slack/com.ibm.streamsx.slack/doc/spldoc
 uplevels=../
 tempdirToinputmapdir.relative.value=dita/
 conrefpushfile=conrefpush.list

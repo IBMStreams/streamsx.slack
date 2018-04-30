@@ -3,8 +3,12 @@
  xmlns:info="http://www.ibm.com/xmlns/prod/streams/spl/toolkitInfo">
  <info:identity>
    <info:name>com.ibm.streamsx.slack</info:name>
-   <info:description></info:description>
-   <info:version>0.2.0</info:version>
+   <info:description>Integration with Slack digital workspace.
+
+   Typical use is to send alerts or informational messages from
+   a Streams application to Slack channel using a incoming web hook.
+   </info:description>
+   <info:version>0.3.0</info:version>
    <info:requiredProductVersion>4.2.0.0</info:requiredProductVersion>
  </info:identity>
  <info:dependencies/>
