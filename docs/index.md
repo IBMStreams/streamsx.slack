@@ -29,11 +29,8 @@ _Note: If you don’t have a Streams application to test with, there are 3 sampl
 
 | Parameter               | Type            | Description      |
 |:---------------------   |:--------------- |:---------------- |
+| **slackConfiguration**  | _rstring_       | Specifies name of the Streams application configuration containing the Slack incoming WebHook URL to send messages to. |
 | **slackUrl**            | _rstring_       | Specifies the Slack incoming WebHook URL to send messages to. |
-| **messageAttribute**    | _Attribute_     | Incoming tuple attribute that specifies the username for the Slack message. |
-| **usernameAttribute**   | _Attribute_     | Incoming tuple attribute that specifies the icon URL for the Slack message. |
-| **iconUrlAttribute**    | _Attribute_     | Incoming tuple attribute that specifies the icon URL (linking to an image) for the Slack message. |
-| **iconEmojiAttribute**  | _Attribute_     | Incoming tuple attribute that specifies the icon emoji (code) for the Slack message. |
 
 ## [](#header-5)Sample Message
 ![](./assets/images/slack-message.png)
