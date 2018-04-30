@@ -10,13 +10,11 @@ namespace com.ibm.streamsx.slack;
 type Message = tuple<rstring text>;
 
 /**
- * Slack message with emoji.
- * Extends [Message] to add the `icon_emoji` attribute to
- * specify the emoji of the message.
- */
-type EmojiMessage = Message, tuple<rstring icon_emoji>;
-
-/**
  * Standard JSON schema.
 */
 type Json = tuple<rstring jsonString>;
+
+/**
+ * Standard String schema.
+*/
+type String = tuple<rstring string>;

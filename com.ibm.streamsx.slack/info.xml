@@ -3,8 +3,8 @@
  xmlns:info="http://www.ibm.com/xmlns/prod/streams/spl/toolkitInfo">
  <info:identity>
    <info:name>com.ibm.streamsx.slack</info:name>
-   <info:description></info:description>
-   <info:version>0.2.0</info:version>
+   <info:description>Integration with Slack digital workspace.</info:description>
+   <info:version>0.3.0</info:version>
    <info:requiredProductVersion>4.2.0.0</info:requiredProductVersion>
  </info:identity>
  <info:dependencies/>

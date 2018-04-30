@@ -50,14 +50,18 @@ import com.ibm.streams.operator.samples.patterns.TupleConsumer;
 		)
 @InputPorts({
 	@InputPortSet(
-			description="Each tuple is converted to JSON and sent as a message to the "
-			        + "Slack incoming Webhook. The schema must include a ", 
+          description="Each tuple is converted to JSON and sent as a message to the "
+            + "Slack incoming web hook.\\n\\n"
+            + "The port's schema must be one of:\\n"
+            + " * [Json] - Streams standard JSON schema. Each tuple represents a JSON object and is used as the message contents. This allows the application to use any field supported by the Slack web hook.\\n"
+            + " * A single `rstring` or `ustring` attribute (which includes the default string exchange schema [String]). The value of the string is used as the `text` property in the JSON message object.\\n"
+            + " * A schema containing an attribute named `text` with type `rstring` or `ustring`. The value of the `text` attributed is used as the `text` property in the JSON message object. [Message] type may be used to augment other schemas.\\n",
+
 			cardinality=1, 
 			optional=false, 
 			windowingMode=WindowMode.NonWindowed, 
 			windowPunctuationInputMode=WindowPunctuationInputMode.Oblivious)})
 @Libraries({
-	// Include javax.mail libraries.
 	"opt/downloaded/*"
 	})
 public class SendSlackMessage extends TupleConsumer {
@@ -68,10 +72,17 @@ public class SendSlackMessage extends TupleConsumer {
 	// ------------------------------------------------------------------------
 
 	protected static final String DESC_OPERATOR = 
-			"Sends messages to a Slack incoming WebHook."
+			"Sends messages to a Slack incoming web hook."
 		  + "\\n"
-		  + "Each incoming tuple results in a message sent to the incoming Webhook."
-		  + "The tuple is converted to JSON and sent to the incoming Webhook.";
+		  + "Each incoming tuple results in a message sent to the incoming web hook."
+		  + "The tuple is converted to JSON and sent to the incoming web hook."
+                  + "\\n\\n"
+                  + "This operator forms the basis for the [SlackMessageService] microservice."
+                  + "\\n\\n"
+                  + "Guide on Slack incoming web hooks: [https://api.slack.com/incoming-webhooks]\\n"
+
+
+        ;
 	
 	@ContextCheck(runtime=false)
 	public static void validateSchema(OperatorContextChecker checker) {
@@ -123,7 +134,7 @@ public class SendSlackMessage extends TupleConsumer {
 	
 	@Parameter(
 			optional=true,
-			description="Specifies the Slack incoming WebHook URL to send messages to."
+			description="Specifies the Slack incoming web hook URL to send messages to."
 			)
 	public void setSlackUrl(String slackUrl) throws IOException {
 		this.slackUrl = slackUrl;
@@ -131,10 +142,9 @@ public class SendSlackMessage extends TupleConsumer {
 	
 	@Parameter(
 			optional=true,
-			description="Name of application configuration containing operator parameters. "
-					  + "Parameters of type Attribute should be specified in the form of a String."
+			description="Name of application configuration containing operator parameters. The incoming web hook URL can be set in the application configuration by setting the `slackUrl` property. This is more flexible than the operator parameter as the incoming web hook URL can be changed while the application is running."
 			)
-	public void setApplicationConfigurationName(String applicationConfigurationName) throws IOException {
+	public void setSlackConfiguration(String applicationConfigurationName) throws IOException {
 		if (!applicationConfigurationName.isEmpty()) {
 			this.applicationConfigurationName = applicationConfigurationName;
 		}
