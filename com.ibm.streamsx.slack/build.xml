@@ -31,6 +31,13 @@
 	</target>
 
 	<target name="clean">
+		<delete verbose="true" includeemptydirs="true">
+			<!-- The fileset with the generated spl artifacts -->
+			<fileset dir="${basedir}">
+				<include name="com.ibm.streamsx.slack/*/*.xml"/>
+				<include name="toolkit.xml"/>
+			</fileset>
+		</delete>
 		<delete dir="${build.dir}" />
 		<delete dir="${impl.lib.dir}" />
 		<delete dir="output"/>
