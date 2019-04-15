@@ -22,7 +22,7 @@
 <div class="body refbody">
 <div class="section">
 <p class="p">
-<a class="xref" href="../toolkits/toolkits.html">Toolkits</a> &gt; <a class="xref" href="tk$com.ibm.streamsx.slack.html">com.ibm.streamsx.slack 0.3.0</a> &gt; <a class="xref" href="ns$com.ibm.streamsx.slack.html">com.ibm.streamsx.slack</a> &gt; SendSlackMessage</p>
+<a class="xref" href="../toolkits/toolkits.html">IBMStreams streamsx.slack Toolkit</a> &gt; <a class="xref" href="tk$com.ibm.streamsx.slack.html">com.ibm.streamsx.slack 0.4.0</a> &gt; <a class="xref" href="ns$com.ibm.streamsx.slack.html">com.ibm.streamsx.slack</a> &gt; SendSlackMessage</p>
 
 </div>
 
@@ -72,7 +72,7 @@
  
   <dt class="dt dlterm">Metrics</dt>
 
-  <dd class="dd">This operator does not report any metrics.</dd>
+  <dd class="dd">This operator reports 3 metrics.</dd>
 
  
 </dl>
@@ -215,6 +215,52 @@ This operator supports 2 parameters.
 </dd>
 
 
+</dl>
+
+</div>
+
+<div class="section">
+<p class="p splhead-1"><strong class="ph b"><a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__context__metrics">Metrics</a></strong></p>
+<dl class="dl">
+  
+    <dt class="dt dlterm"><tt class="ph tt">nFailedRequests</tt> - <a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__context__metrics_kind_counter">Counter</a></dt>
+
+    <dd class="dd">
+
+<p class="p">The number of failed messages over the lifetime of the operator.
+</p>
+
+     <p class="p"/>
+
+     </dd>
+
+  
+  
+    <dt class="dt dlterm"><tt class="ph tt">nInsertedMessages</tt> - <a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__context__metrics_kind_counter">Counter</a></dt>
+
+    <dd class="dd">
+
+<p class="p">The number of successful messages over the lifetime of the operator.
+</p>
+
+     <p class="p"/>
+
+     </dd>
+
+  
+  
+    <dt class="dt dlterm"><tt class="ph tt">rateLimitExceeded</tt> - <a class="xref" href="../references/OperatorModel.html#spldoc_reference_operator_model__context__metrics_kind_gauge">Gauge</a></dt>
+
+    <dd class="dd">
+
+<p class="p">Describes whether we exceed a rate limit when sending messages to Slack server. This is set to 1 after response 429 is received. Otherwise the value is 0. 
+</p>
+
+     <p class="p"/>
+
+     </dd>
+
+  
 </dl>
 
 </div>
