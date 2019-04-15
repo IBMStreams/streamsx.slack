@@ -64,7 +64,8 @@ public composite Main
 		() as SendMessage = SendSlackMessage(JSONMessage)
 		{
 			param
-				slackUrl : getSubmissionTimeValue("slackUrl") ;
+				slackUrl : getSubmissionTimeValue("slackUrl", "");
+				slackConfiguration : getSubmissionTimeValue("slackConfiguration", "slack");
 		}
 
 }
