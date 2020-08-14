@@ -39,7 +39,7 @@ Now that the toolkit has been added as a dependency to your application. Simply 
 
 The slackUrl is the only required parameter. Give this parameter the incoming WebHook URL you generated from your Slack channel in the Prerequisites section.
 
-## Defining the Message?s Content
+## Defining the Message#s Content
 
 By default, the operator looks for an attribute called "message" on the incoming tuple. However, you can select which tuple attribute contains the message you want to send to your slack channel using the `messageAttribute` parameter. This parameter accepts an incoming attribute of type `rstring`.
 
@@ -92,7 +92,7 @@ Custom message usernames can be defined by using the optional usernameAttribute 
 ### Defining Custom Icons
 
 Custom message icons can be defined by using the optional `iconUrlAttribute` and `iconEmojiAttribute` parameters. In your Incoming WebHook's configuration, you'll notice that you can set a custom icon for your messages (you can only choose one or the other). The `iconUrlAttribute` and `iconEmojiAttribute` parameters override your configuration's icon, if defined.
-The `iconUrlAttribute` just contains a link to your desired image. The `iconEmojiAttribute` contains an icon emoji code (eg. ":smile:", ":heart:", ":no_entry_sign:", etc).  All the possible emoji codes can be found here.
+The `iconUrlAttribute` just contains a link to your desired image. The `iconEmojiAttribute` contains an icon emoji code (eg. `:smile:`, `:heart:`, `:no_entry_sign:`, etc).  All the possible emoji codes can be found here.
 The `usernameAttribute`, `iconUrlAttribute`, and `iconEmojiAttribute` parameters work in exactly the same way as the `messageAttribute`. 
 
 Please look at the other samples in the toolkit's samples folder for a better understanding.
