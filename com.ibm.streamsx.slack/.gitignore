@@ -1,8 +1,0 @@
-/.apt_generated/
-/output/
-/.toolkitList
-/doc/
-/bin/
-/opt/
-/impl/lib/com.ibm.streamsx.slack.jar
-build.info
