@@ -2,7 +2,7 @@
 title: "Get Started"
 permalink: /docs/knowledge/overview/
 excerpt: "Basic knowledge of the toolkits technical domain and usage."
-last_modified_at: 2020-08-14T15:15:48-04:00
+last_modified_at: 2020-08-14T15:35:48-04:00
 redirect_from:
    - /theme-setup/
 sidebar:
@@ -22,7 +22,7 @@ This article will demonstrate how to send messages to any Slack channel from Str
 
 To start sending Slack messages with streams applications, you'll need:
 
-* IBM Streams
+* IBM Streams - [Quick Start Guide](https://ibmstreams.github.io/streamsx.documentation/docs/spl/quick-start/qs-0/)
 * The streamsx.slack toolkit - Download a [release](https://github.com/IBMStreams/streamsx.slack/releases) or clone it from this repository.
 * An incoming WebHook URL for your Slack channel - You can generate one [here](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks) (you may need to ask your team admin for permission to add a web-hook).
 
@@ -39,7 +39,7 @@ Now that the toolkit has been added as a dependency to your application. Simply 
 
 The slackUrl is the only required parameter. Give this parameter the incoming WebHook URL you generated from your Slack channel in the Prerequisites section.
 
-## Defining the Message#s Content
+## Defining the Message's Content
 
 By default, the operator looks for an attribute called "message" on the incoming tuple. However, you can select which tuple attribute contains the message you want to send to your slack channel using the `messageAttribute` parameter. This parameter accepts an incoming attribute of type `rstring`.
 
